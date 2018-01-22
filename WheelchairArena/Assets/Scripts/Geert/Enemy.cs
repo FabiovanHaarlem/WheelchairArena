@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 
 public class Enemy : MonoBehaviour {
-    [SerializeField]
+    
     private Transform _Player;
     [SerializeField]
     private float _Health;
@@ -30,7 +30,12 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _Agent.destination = _Player.position;
-        
+
+
+        if (_Health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
         
         
 	}
@@ -41,12 +46,18 @@ public class Enemy : MonoBehaviour {
         _SpeedModifier = modifier;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collider)
     {
         
-        if(collision.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player")
         {
             _Agent.isStopped = true;
         }
+        
+    }
+
+    public void Set_player(GameObject player)
+    {
+        _Player = player.transform;
     }
 }
