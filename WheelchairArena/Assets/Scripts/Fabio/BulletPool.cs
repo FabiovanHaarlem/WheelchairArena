@@ -10,7 +10,7 @@ public class BulletPool : MonoBehaviour
     {
         m_Bullets = new List<Bullet>();
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 250; i++)
         {
             GameObject bullet = Instantiate(Resources.Load<GameObject>("Prefabs/Bullet"));
             m_Bullets.Add(bullet.GetComponent<Bullet>());
