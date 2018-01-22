@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
         transform.position = playerPosition;
         m_BulletDirection = bulletDirection;
         m_Speed = 50;
-        m_DisableTimer = 5;
+        m_DisableTimer = 4;
         transform.eulerAngles = rotation;
         gameObject.SetActive(true);
     }
